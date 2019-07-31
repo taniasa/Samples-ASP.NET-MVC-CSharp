@@ -19,16 +19,14 @@ namespace HTML_Samples.Controllers
         {
             return View();
         }
-        string reportName = "TwoSimpleLists.mrt";
+        string reportName = "MyReport.mrt";
         public ActionResult GetReport()
         {
             StiReport report = new StiReport();
             report.Load(Server.MapPath($"~/Content/Reports/{reportName}"));
-            report.RegBusinessObject("MyObject", Utils.Get());
-            report.RegBusinessObject("MyObject2", Utils.Get());
-            report.RegBusinessObject("MyObject3", Utils.Get());
 
-            report.Dictionary.SynchronizeBusinessObjects(4);
+            RegisterReportData(report);
+
             return StiMvcDesigner.GetReportResult(report);
         }
 
@@ -48,14 +46,20 @@ namespace HTML_Samples.Controllers
             data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
 
             StiReport report = StiMvcDesigner.GetActionReportObject();
-
-            report.RegBusinessObject("MyObject", Utils.Get());
-            report.RegBusinessObject("MyObject2", Utils.Get());
-            report.RegBusinessObject("MyObject3", Utils.Get());
-
-            report.Dictionary.SynchronizeBusinessObjects(4);
+            RegisterReportData(report);
 
             return StiMvcDesigner.PreviewReportResult(report);
+        }
+
+        private static void RegisterReportData(StiReport report)
+        {
+            //report.Dictionary.BusinessObjects.Clear();
+
+            report.RegBusinessObject("Principal", Utils.Get());
+            report.RegBusinessObject("Test", Utils.Get());
+            report.RegBusinessObject("TestMyObject3", Utils.Get());
+
+            report.Dictionary.SynchronizeBusinessObjects(4);
         }
 
         public ActionResult DesignerEvent()

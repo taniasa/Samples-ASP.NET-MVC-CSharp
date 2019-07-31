@@ -16,13 +16,15 @@ namespace HTML_Samples
 
     public class Utils
     {
-        public static DataReport Get()
+        public static List<DataReport> Get()
         {
             var retorno = new DataReport();
             retorno.Data1 = GetData(1);
             retorno.Data2 = GetData(2);
             retorno.MyData3 = GetData(3);
-            return retorno;
+            return new List<DataReport>() { retorno };
+            
+            //return retorno;
         }
 
         public static List<Data1> GetData(int id)
@@ -30,7 +32,7 @@ namespace HTML_Samples
             var data = new List<Data1>();
             for (int i = 1; i < 25; i++)
             {
-                data.Add(new Data1(i, id, $"Name data {id}"));
+                data.Add(new Data1(i, id, $"Name data {id} - {i.ToString()}"));
             }
             return data;
         }
