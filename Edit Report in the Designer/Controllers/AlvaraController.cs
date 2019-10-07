@@ -15,17 +15,15 @@ namespace HTML_Samples.Controllers
     {
         static AlvaraController()
         {
-            // How to Activate
-            //Stimulsoft.Base.StiLicense.Key = "6vJhGtLLLz2GNviWmUTrhSqnO...";
-            //Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
-            //Stimulsoft.Base.StiLicense.LoadFromStream(stream);
+       
         }
 
         public ActionResult Index()
         {
             return View();
         }
-        string reportName = "alvara2.mrt";
+        //ALTER HERE PLEASE
+        string reportName = "alvara2.mrt"; //or "alvara.mrt"
         public ActionResult GetReport()
         {
             StiReport report = new StiReport();
@@ -48,8 +46,7 @@ namespace HTML_Samples.Controllers
 
         public ActionResult PreviewReport()
         {
-            //DataSet data = new DataSet("Demo");
-            //data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+
 
             StiReport report = StiMvcDesigner.GetActionReportObject();
             RegisterReportData(report);
@@ -59,11 +56,7 @@ namespace HTML_Samples.Controllers
 
         private static void RegisterReportData(StiReport report)
         {
-            //report.Dictionary.BusinessObjects.Clear();
 
-            //report.RegBusinessObject("Principal", Utils.Get());
-            //report.RegBusinessObject("Test", Utils.Get());
-            //report.RegBusinessObject("TestMyObject3", Utils.Get());
 
             report.RegBusinessObject("Assinaturas", new List<ReponsavelModeloRelatorioDto>());
             report.RegBusinessObject("Cabecalho", new List<CabecalhoDto>());
@@ -74,7 +67,6 @@ namespace HTML_Samples.Controllers
             {
                 Data = string.Empty
             });
-            //var dados = System.IO.File.ReadAllText(Resources.alvara);
             var funcionamento = Newtonsoft.Json.JsonConvert.DeserializeObject<AlvaraFuncionamentoDto>(Resources.alvara);
             report.RegBusinessObject("Dados_Alvara_Funcionamento", funcionamento);
 

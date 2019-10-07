@@ -251,6 +251,7 @@
     <Content Include="Content\Reports\TwoSimpleLists.mrt" />
     <Content Include="Content\Reports\MyReport.mrt" />
     <Content Include="Content\Reports\alvara.mrt" />
+    <Content Include="Content\Reports\alvara2.mrt" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

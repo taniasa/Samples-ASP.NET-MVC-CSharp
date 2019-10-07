@@ -10,7 +10,7 @@ namespace HTML_Samples.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Designer");
+            return RedirectToAction("Index", "Alvara");
             //return View();
         }
 
