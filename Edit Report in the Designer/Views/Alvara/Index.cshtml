@@ -1,0 +1,19 @@
+﻿
+@using Stimulsoft.Report.Mvc;
+
+@{
+    ViewBag.Title = "Alvará";
+}
+
+<h2>Edit Report in the Designer - Alvará</h2>
+
+@Html.Stimulsoft().StiMvcDesigner(new StiMvcDesignerOptions()
+{
+    Actions =
+    {
+        GetReport = "GetReport",
+        PreviewReport = "PreviewReport",
+        DesignerEvent = "DesignerEvent",
+        SaveReport = "SaveReportDesigner"
+    }
+})
